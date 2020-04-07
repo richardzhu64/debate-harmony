@@ -14,17 +14,15 @@ did not have an index.html page just because I wanted the homepage for debaters 
 coach.html.
 
 ## Use
-I'm just gonna run down the use of each html page.
+### HTML Pages
 
-Apology: Copied from CS50 finance, displays apology for errors.
+Apology: Displays apology message for errors.
 
-Layout: Slightly edited from CS50 finance - the navbar is a bit different with the DebateHarmony symbol and a few dropdowns. Very similar functionality.
+Layout: Stores general layout of the webpage - the navbar is a bit different with the DebateHarmony symbol and a few dropdowns. Very similar functionality.
 
-Register: Like Finance, users have to register first before logging in to access the pages on the website. For each user, there are 6 parts to
-registering: your name, username, password role (coach/debater), email, and contact info (optional). If anything is missing there should be a JS alert
-or an apology in python. The register method then checks if the username  or email is already taken - if it is, it won't enter it into the
-database and will return an apology. This info all gets stored in the users table, which then turns the password to a hash and attaches an id to
-the user as well.
+Register: Users have to register first before logging in to access the pages on the website. For each user, there are 6 parts to
+registering: your name, username, password role (coach/debater), email, and contact info (optional). The register method then checks if the username  or email is already taken - if it is, it won't enter it into the
+database and will return an apology.
 
 Login: When logging in, you must enter your username and password. Then it stores the session ID and redirects to the "/" route.
 
