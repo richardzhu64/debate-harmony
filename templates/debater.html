@@ -1,0 +1,143 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Your Homepage
+{% endblock %}
+
+{% block main %}
+<div>
+    <h1 class="welcome">
+        Welcome, {{name}}
+    </h1>
+</div>
+<div>
+    <h3>
+        Your Trade Returns
+    </h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Username</th>
+                <th scope="col">Email</th>
+                <th scope="col">Contact</th>
+                <th scope="col">Topic</th>
+                <th scope="col">Contents</th>
+                <th scope="col">URL</th>
+                <th scope="col">Comments</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for t in range (tNumber) %}
+            <tr>
+                <th scope="row">{{userTrades[t]["name"]}}</th>
+                <td>{{userTrades[t]["username"]}}</td>
+                <td>{{userTrades[t]["email"]}}</td>
+                <td>{{userTrades[t]["contact"]}}</td>
+                <td>{{userTrades[t]["topic"]}}</td>
+                <td>{{contents[t]}}</td>
+                <td>{{userTrades[t]["url"]}}</td>
+                <td>{{userTrades[t]["comments"]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div>
+    <h3>
+        Your Practice Round Matches
+    </h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Username</th>
+                <th scope="col">Email</th>
+                <th scope="col">Contact</th>
+                <th scope="col">Experience</th>
+                <th scope="col">Side</th>
+                <th scope="col">Topic</th>
+                <th scope="col">Time Range</th>
+                <th scope="col">Comments</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in range (pNumber) %}
+            <tr>
+                <th scope="row">{{userPractice[p]["name"]}}</th>
+                <td>{{userPractice[p]["username"]}}</td>
+                <td>{{userPractice[p]["email"]}}</td>
+                <td>{{userPractice[p]["contact"]}}</td>
+                <td>{{userPractice[p]["experience"]}}</td>
+                <td>{{userPractice[p]["side"]}}</td>
+                <td>{{userPractice[p]["topic"]}}</td>
+                <td>{{userPractice[p]["early"]}} to {{userPractice[p]["late"]}}</td>
+                <td>{{userPractice[p]["comments"]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div>
+    <h3>
+        Your Coach Matches
+    </h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Username</th>
+                <th scope="col">Email</th>
+                <th scope="col">Contact</th>
+                <th scope="col">Event</th>
+                <th scope="col">Minimum Pay</th>
+                <th scope="col">Maximum Hours</th>
+                <th scope="col">Comments</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in range (cNumber) %}
+            <tr>
+                <th scope="row">{{userCoaches[c]["name"]}}</th>
+                <td>{{userCoaches[c]["username"]}}</td>
+                <td>{{userCoaches[c]["email"]}}</td>
+                <td>{{userCoaches[c]["contact"]}}</td>
+                <td>{{userCoaches[c]["event"]}}</td>
+                <td>{{userCoaches[c]["minpay"]|usd }}/month</td>
+                <td>{{userCoaches[c]["maxhours"]}}/month</td>
+                <td>{{userCoaches[c]["comments"]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div>
+    <h3>
+        Your Judge Postings
+    </h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Tournament</th>
+                <th scope="col">Event</th>
+                <th scope="col">Dates</th>
+                <th scope="col">Pay</th>
+                <th scope="col">Contact</th>
+                <th scope="col">Comments</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for j in range (jNumber) %}
+            <tr>
+                <th scope="row">{{userJudges[j]["tournament"]}}</th>
+                <td>{{userJudges[j]["event"]}}</td>
+                <td>{{userJudges[j]["startdate"]}} to {{userJudges[j]["enddate"]}} </td>
+                <td>{{userJudges[j]["pay"]| usd}}/{{userJudges[j]["payformat"]}}</td>
+                <td>{{userJudges[j]["contact"]}}</td>
+                <td>{{userJudges[j]["comments"]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

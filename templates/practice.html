@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Set Up a Practice Round
+{% endblock %}
+
+{% block main %}
+    <div>
+        <h>
+            Set Up a Practice Round for Today!
+        </h>
+    </div>
+    <form action="/practice" method="POST">
+        <div class="form-group">
+            <label for="experience">What is your experience level?</label>
+            <select name="experience">
+                <option disabled selected value="">Experience</option>
+                <option value="novice">Novice</option>
+                <option value="jv">JV</option>
+                <option value="varsity1">Varsity (3rd Year)</option>
+                <option value="varsity2">Experienced Varsity (4th Year)</option>
+            </select>
+        <div class="form-group">
+            <label for="early">Choose a earliest time for your round:</label>
+            <input type="time" name="early" required>
+        </div>
+        <div class="form-group">
+            <label for="late">Choose a latest time for your round:</label>
+            <input type="time" name="late" required>
+        </div>
+        <div class="form-group">
+            <label for="topic">What topic do you want to debate? (pick 1)</label>
+            <select name="topic">
+                <option disabled selected value="">Topic</option>
+                <option value="septober">Septober</option>
+                <option value="nocember">Nocember</option>
+                <option value="january">January</option>
+                <option value="february">February</option>
+                <option value="march">March</option>
+                <option value="april">April</option>
+                <option value="may">May</option>
+                <option value="june">June</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="side">What side do you want to debate?</label>
+            <select name="side">
+                <option disabled selected value="">Side</option>
+                <option value="aff">Pro/Affirmative</option>
+                <option value="neg">Con/Negative</option>
+                <option value="either">Either</option>
+            </select>
+        </div>
+        <!-- Enter comments -->
+                <div class="form-group">
+            <label for="comments"> Add any additional information you want to add? Your match will see these comments. (optional)</label></br>
+            <textarea class="form-control" name="comments" rows="5" cols="50"></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Request Practice Round</button>
+    </form>
+    <!-- check input in javascript -->
+    <script>
+        document.querySelector('form').onsubmit = function ()
+        {
+            if (!document.getElementsByName("topic")[0].value)
+            {
+                alert('You must provide what topic you want to debate!');
+                return false;
+            }
+            else if (!document.getElementsByName("side")[0].value)
+            {
+                alert('You must provide what side you want to debate on!');
+                return false;
+            }
+            else if (!document.getElementsByName("early")[0].value)
+            {
+                alert('You must provide your earliest time!');
+                return false;
+            }
+            else if (!document.getElementsByName("late")[0].value)
+            {
+                alert('You must provide your latest time!');
+                return false;
+            }
+            return true;
+        };
+    </script>
+
+{% endblock %}

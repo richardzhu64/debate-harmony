@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add to the Wiki
+{% endblock %}
+
+{% block main %}
+    <form action="/wiki" method="post">
+        <div class="form-group">
+            <label for="event">What event is this for?</label></br>
+            <select autocomplete="off" autofocus name="event">
+                <option disabled selected value="">Event</option>
+                <option value="Policy">Policy</option>
+                <option value="LD">LD</option>
+                <option value="PF">PF</option>
+                <option value="congress">Congress</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="description"> Describe this entry - what's inside? (Which topic, what content, who is it for)</label></br>
+            <textarea class="form-control" name="description" rows="5" cols="50"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="url">Google Drive URL link to your prep - set to view only!</label></br>
+            <input type="text" class="form-control" name="url" placeholder="Link">
+        </div>
+        <button class="btn btn-primary" type="submit">Add to Wiki</button>
+    </form>
+    <!-- check input in javascript -->
+    <script>
+
+        document.querySelector('form').onsubmit = function ()
+        {
+            if (!document.getElementsByName("event")[0].value)
+            {
+                alert('You must provide the event for which you are adding things!');
+                return false;
+            }
+            else if (!document.getElementsByName("description")[0].value)
+            {
+                alert('You must provide your description!');
+                return false;
+            }
+            else if (!document.getElementsByName("url")[0].value)
+            {
+                alert('You must provide your url!');
+                return false;
+            }
+            return true;
+        };
+    </script>
+
+{% endblock %}
+
+

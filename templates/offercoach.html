@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Offer Coaching
+{% endblock %}
+
+{% block main %}
+    <form action="/offercoach" method="post">
+        <div class="form-group">
+            <label for="event">What event can you coach?</label></br>
+            <select autocomplete="off" autofocus name="event">
+                <option disabled selected value="">Event</option>
+                <option value="policy">Policy</option>
+                <option value="ld">LD</option>
+                <option value="pf">PF</option>
+                <option value="congress">Congress</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="maxhours">Give a maximum hours per month of coaching you can offer.</label></br>
+            <input autocomplete="off" autofocus type="number" class="form-control" name="maxhours" placeholder="# of Hours">
+        </div>
+        <div class="form-group">
+            <label for="minpay">Give a minimum pay per month for coaching.</label></br>
+            <input autocomplete="off" autofocus type="number" class="form-control" name="minpay" placeholder="# of Dollars">
+        </div>
+        <!-- Enter comments -->
+        <div class="form-group">
+            <label for="comments"> Add any additional information you want to add? Your match will see these comments. (optional)</label></br>
+            <textarea class="form-control" name="comments" rows="3" cols="50"></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Offer Coach</button>
+    </form>
+    <!-- check input in javascript -->
+    <script>
+
+        document.querySelector('form').onsubmit = function ()
+        {
+            if (!document.getElementsByName("name")[0].value)
+            {
+                alert('You must provide your name!');
+                return false;
+            }
+            else if (!document.getElementsByName("username")[0].value)
+            {
+                alert('You must provide your username!');
+                return false;
+            }
+            else if (!document.getElementsByName("event")[0].value)
+            {
+                alert('You must provide your event!');
+                return false;
+            }
+            else if (!document.getElementsByName("maxhours")[0].value)
+            {
+                alert('You must provide provide your maximum hours of coaching per month!');
+                return false;
+            }
+            else if (!document.getElementsByName("email")[0].value)
+            {
+                alert('You must provide your email!');
+                return false;
+            }
+            else if (!document.getElementsByName("minpay")[0].value)
+            {
+                alert('You must provide your minimum pay per month!');
+                return false;
+            }
+            return true;
+        };
+    </script>
+
+{% endblock %}

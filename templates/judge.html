@@ -1,0 +1,104 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Hire Judges
+{% endblock %}
+
+{% block main %}
+    <form action="/judge" method="post">
+        <div class="form-group">
+            <label for="tournament">What tournament do you need judging for?</label></br>
+            <input autocomplete="off" autofocus type="text" class="form-control" name="tournament" placeholder="Tournament">
+        </div>
+        <div class="form-group">
+            <label for="startdate">Start Date:</label></br>
+            <input autocomplete="off" autofocus type="date" class="form-control" name="startdate" placeholder="mm/dd/yyyy">
+        </div>
+        <div class="form-group">
+            <label for="enddate">End Date:</label></br>
+            <input autocomplete="off" autofocus type="date" class="form-control" name="enddate" placeholder="mm/dd/yyyy">
+        </div>
+        <div class="form-group">
+            <label for="event">What event do you need judges in?</label></br>
+                <select autocomplete="off" autofocus name="event">
+                <option disabled selected value="">Event</option>
+                <option value="policy">Policy</option>
+                <option value="ld">LD</option>
+                <option value="pf">PF</option>
+                <option value="congress">Congress</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="payformat">Pay Format (select 1): </label></br>
+            <select autocomplete="off" autofocus name="payformat">
+                <option disabled selected value="">Per Round/Day/Tournament</option>
+                <option value="Round">Round</option>
+                <option value="Day">Day</option>
+                <option value="Tournament">Tournament</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="pay">Pay Amount (per round, day, or tournament): </label></br>
+            <input autocomplete="off" autofocus type="number" class="form-control" name="pay" placeholder="# of Dollars">
+        </div>
+        <!-- Enter comments -->
+        <div class="form-group">
+            <label for="comments"> Add any additional information you want to add? Potential judges will see these comments. (optional)</label></br>
+            <textarea class="form-control" name="comments" rows="5" cols="50"></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Request Judge</button>
+    </form>
+    <!-- check input in javascript -->
+    <script>
+        document.querySelector('form').onsubmit = function ()
+        {
+            if (!document.getElementsByName("name")[0].value)
+            {
+                alert('You must provide your name!');
+                return false;
+            }
+            else if (!document.getElementsByName("username")[0].value)
+            {
+                alert('You must provide your username!');
+                return false;
+            }
+            else if (!document.getElementsByName("event")[0].value)
+            {
+                alert('You must provide your event!');
+                return false;
+            }
+            else if (!document.getElementsByName("tournament")[0].value)
+            {
+                alert('You must provide the tournament!');
+                return false;
+            }
+            else if (!document.getElementsByName("startdate")[0].value)
+            {
+                alert('You must provide the tournament start date!');
+                return false;
+            }
+            else if (!document.getElementsByName("tournament")[0].value)
+            {
+                alert('You must provide the tournament start date!');
+                return false;
+            }
+            else if (!document.getElementsByName("email")[0].value)
+            {
+                alert('You must provide your email!');
+                return false;
+            }
+            else if (!document.getElementsByName("payformat")[0].value)
+            {
+                alert('You must provide your maximum pay format!');
+                return false;
+            }
+            else if (!document.getElementsByName("pay")[0].value)
+            {
+                alert('You must provide your pay amount!');
+                return false;
+            }
+            return true;
+        };
+    </script>
+
+{% endblock %}

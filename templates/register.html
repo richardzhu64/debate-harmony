@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <form action="/register" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="name" placeholder="Name" type="text">
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text">
+        </div>
+        <div>
+        <select name="role">
+                <option disabled selected value="">Role</option>
+                <option value="debater">Debater</option>
+                <option value="coach">Coach</option>
+        </select>
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="password" placeholder="Password" type="password">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="confirmation" placeholder="Confirm Password" type="password">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" name="email" placeholder="name@example.com">
+        </div>
+        <div class="form-group">
+            <label for="contact">Please tell us the best way to contact you (give your Facebook, Skype, or email address again) (optional):</label>
+            <input type="text" class="form-control" name="contact" placeholder="@debater on Skype, Abraham Lincoln on Facebook, 12345678@gmail.com">
+        </div>
+        <button class="btn btn-primary" type="submit">Register</button>
+    </form>
+    <!-- check input in javascript -->
+    <script>
+
+        document.querySelector('form').onsubmit = function(event)
+        {
+            event.preventDefault();
+            $.get("/check", {username: document.querySelector("input[name=username]").value}, {email: document.querySelector("input[name=email]").value}, function(result)
+            {
+                if (result)
+                {
+                    document.querySelector('form').submit();
+                }
+                else
+                {
+                    alert("The username or email you entered is already taken!");
+                }
+            });
+        };
+
+        document.querySelector('form').onsubmit = function ()
+        {
+            if (!document.getElementsByName("name")[0].value)
+            {
+                alert('You must provide your name!');
+                return false;
+            }
+            else if (!document.getElementsByName("username")[0].value)
+            {
+                alert('You must provide your username!');
+                return false;
+            }
+            else if (!document.getElementsByName("role")[0].value)
+            {
+                alert('You must provide if you are a debater or coach!');
+                return false;
+            }
+            else if (!document.getElementsByName("password")[0].value)
+            {
+                alert('You must provide your password!');
+                return false;
+            }
+            else if (!document.getElementsByName("confirmation")[0].value)
+            {
+                alert('You must provide confirm your password!');
+                return false;
+            }
+            else if (!document.getElementsByName("email")[0].value)
+            {
+                alert('You must provide your email!');
+                return false;
+            }
+            return true;
+        };
+    </script>
+
+{% endblock %}

@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Trade For Stuff
+{% endblock %}
+
+{% block main %}
+    <form action="/trade" method="post">
+        <div class="form-group">
+            <label for="url">Google Drive URL link to your prep - set to view only!</label></br>
+            <input type="text" class="form-control" name="url" placeholder="Link">
+        </div>
+        <div class="form-group">
+            <label for="topic1">What topic are you offering prep for? (pick 1)</label></br>
+            <select name="topic1">
+                <option disabled selected value="">Topic</option>
+                <option value="septober">Septober</option>
+                <option value="nocember">Nocember</option>
+                <option value="january">January</option>
+                <option value="february">February</option>
+                <option value="march">March</option>
+                <option value="april">April</option>
+                <option value="may">May</option>
+                <option value="june">June</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="have">What prep are you OFFERING? (select one)</label></br>
+            <select name="have">
+                <option disabled selected value="">Prep</option>
+                <option value="cases">Cases</option>
+                <option value="blocks">Blocks</option>
+                <option value="briefs">Briefs</option>
+                <option value="cards">Cards</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="topic2">What topic would you like to RECEIVE prep for? (pick 1)</label></br>
+            <select name="topic2">
+                <option disabled selected value="">Topic</option>
+                <option value="septober">Septober</option>
+                <option value="nocember">Nocember</option>
+                <option value="january">January</option>
+                <option value="february">February</option>
+                <option value="march">March</option>
+                <option value="april">April</option>
+                <option value="may">May</option>
+                <option value="june">June</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="want">What prep would you like to RECEIVE? (select one)</label></br>
+            <select name="want">
+                <option disabled selected value="">Prep</option>
+                <option value="cases">Cases</option>
+                <option value="blocks">Blocks</option>
+                <option value="briefs">Briefs</option>
+                <option value="cards">Cards</option>
+            </select>
+        </div>
+        <!-- Enter comments -->
+        <div class="form-group">
+            <label for="comments"> Add any additional information you want to add? Your match will see these comments. (optional)</label></br>
+            <textarea class="form-control" name="comments" rows="5" cols="50"></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Request Trade</button>
+    </form>
+    <!-- check input in javascript -->
+    <script>
+        document.querySelector('form').onsubmit = function ()
+        {
+            if (!document.getElementsByName("url")[0].value)
+            {
+                alert('You must provide a URL to your prep!');
+                return false;
+            }
+            else if (!document.getElementsByName("topic1")[0].value)
+            {
+                alert('You must provide what topic you have prep on!');
+                return false;
+            }
+            else if (!document.getElementsByName("have")[0].value)
+            {
+                alert('You must provide what type of prep you have!');
+                return false;
+            }
+            else if (!document.getElementsByName("topic2")[0].value)
+            {
+                alert('You must provide what topic you want to receive prep for!');
+                return false;
+            }
+            else if (!document.getElementsByName("want")[0].value)
+            {
+                alert('You must provide the type of prep you want to receive!');
+                return false;
+            }
+            return true;
+        };
+    </script>
+
+{% endblock %}

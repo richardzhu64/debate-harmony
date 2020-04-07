@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Your Homepage
+{% endblock %}
+
+{% block main %}
+<div>
+    <h1 class="welcome">
+        Welcome, {{name}}
+    </h1>
+</div>
+<div>
+    <h1>
+        Your Coach Matches
+    </h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Event</th>
+                <th scope="col">Username</th>
+                <th scope="col">Email</th>
+                <th scope="col">Contact</th>
+                <th scope="col">Maximum Pay</th>
+                <th scope="col">Minimum Hours</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in range (cNumber) %}
+            <tr>
+                <th scope="row">{{userCoaches[c]["name"]}}</th>
+                <td>{{userCoaches[c]["event"]}}</td>
+                <td>{{userCoaches[c]["username"]}}</td>
+                <td>{{userCoaches[c]["email"]}}</td>
+                <td>{{userCoaches[c]["contact"]}}</td>
+                <td>{{userCoaches[c]["maxpay"]|usd }}/month</td>
+                <td>{{userCoaches[c]["minhours"]}}/month</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div>
+    <h1>
+        Judging Opportunities
+    </h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Contact</th>
+                <th scope="col">Event</th>
+                <th scope="col">Tournament</th>
+                <th scope="col">Dates</th>
+                <th scope="col">Pay</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for j in range (jNumber) %}
+            <tr>
+                <th scope="row">{{userJudges[j]["name"]}}</th>
+                <td>{{userJudges[j]["email"]}}</td>
+                <td>{{userJudges[j]["contact"]}}</td>
+                <td>{{userJudges[j]["event"]}}</td>
+                <td>{{userJudges[j]["tournament"]}}</td>
+                <td>{{userJudges[j]["startdate"]}} to {{userJudges[j]["enddate"]}} </td>
+                <td>{{userJudges[j]["pay"]| usd}}/{{userJudges[j]["payformat"]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

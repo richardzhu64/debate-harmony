@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    THE WIKI
+{% endblock %}
+
+{% block main %}
+<div>
+    <header class="welcome">
+        Welcome to the Wiki!
+    </header>
+</div>
+<div>
+    <h1>
+        WIKI
+    </h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Uploader Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Event</th>
+                <th scope="col">URL</th>
+                <th scope="col">Date Uploaded</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for w in range (wlength) %}
+            <tr>
+                <th scope="row">{{wiki[w]["name"]}}</th>
+                <td>{{wiki[w]["description"]}}</td>
+                <td>{{wiki[w]["event"]}}</td>
+                <td>{{wiki[w]["url"]}}</td>
+                <td>{{wiki[w]["date"]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Your Contacts
+{% endblock %}
+
+{% block main %}
+<div>
+    <h1 class="welcome">
+        {{name}}'s Contacts
+    </h1>
+</div>
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Username</th>
+                <th scope="col">Email</th>
+                <th scope="col">Contact</th>
+                <th scope="col">Date Added</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in range (cNumber) %}
+            <tr>
+                <th scope="row">{{contacts[c]["name"]}}</th>
+                <td>{{contacts[c]["username"]}}</td>
+                <td>{{contacts[c]["email"]}}</td>
+                <td>{{contacts[c]["contact"]}}</td>
+                <td>{{contacts[c]["time"]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
