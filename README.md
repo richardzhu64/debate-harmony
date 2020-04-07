@@ -2,16 +2,9 @@
 
 ## General
 
-For my project, I implemented a website that allows debaters to share and collaborate with each other. Using some of the CS50 code from Finance,
-I created Debate Harmony, which connects debaters across the country to contribute to a wiki of resources, trade preparation, coordinate practice
-rounds, seek coaching, and post judging opportunities. Since it was based on Finance code, it was a web-based application using Javascript, Python,
-SQL, HTML, and a tiny bit of CSS.
-
-## Compiling/Configuring
-
-Since I did the project in CS50 IDE, the compiling was always just running Flask and opening up the web application in IDE. Importantly, my project
-did not have an index.html page just because I wanted the homepage for debaters and coaches to be different, so I redirected to debater.html and
-coach.html.
+I implemented a website that allows debaters to share and collaborate with each other through a web-based application called DebateHarmony using Javascript, Python,
+SQL, HTML, and a tiny bit of CSS. The application includes features which connect debaters across the country to contribute to a wiki of resources, trade preparation, coordinate practice
+rounds, seek coaching, and post judging opportunities. This was my final project for Harvard's CS50 class.
 
 ## Use
 ### HTML Pages
